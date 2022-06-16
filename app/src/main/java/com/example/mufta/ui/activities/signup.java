@@ -24,10 +24,11 @@ import java.util.Objects;
 
 public class signup extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword, name,inputCPassowrd;
+    private EditText inputEmail, inputPassword, name, inputCPassowrd;
     ProgressBar progressBar;
     FirebaseAuth auth;
     TextView skip;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,7 +49,7 @@ public class signup extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(signup.this,MainActivity.class);
+                Intent intent = new Intent(signup.this, MainActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -69,8 +70,8 @@ public class signup extends AppCompatActivity {
                     return;
                 }
                 if (TextUtils.isEmpty(email)) {
-                   inputEmail.setError("Email can't be empty");
-                        return;
+                    inputEmail.setError("Email can't be empty");
+                    return;
                 }
                 if (!email.matches(emailPattern)) {
                     inputEmail.setError("Invalid email address");
@@ -82,7 +83,7 @@ public class signup extends AppCompatActivity {
                 }
 
                 if (password.length() < 6) {
-                   inputPassword.setError("Password is too short");
+                    inputPassword.setError("Password is too short");
                     return;
                 }
                 if (password.equals(cpassword)) {
@@ -120,8 +121,8 @@ public class signup extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-    public  void working(View view)
-    {
+
+    public void working(View view) {
         Toast.makeText(this, "We are working on it", Toast.LENGTH_SHORT).show();
     }
 
